@@ -31,3 +31,9 @@ Then to start each client run
 stack exec dots-game-client
 ```
 
+### Controls
+
+Player can use arrows (<kbd>←</kbd>, <kbd>↑</kbd>, <kbd>→</kbd>, <kbd>↓</kbd>)
+to accelerate his/her dot in the corresponding direction.
+
+To exit the game use <kbd>ESC</kbd>.
