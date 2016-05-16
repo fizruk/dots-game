@@ -98,7 +98,7 @@ handlePlayerAction name (ActionAccel dir) (Universe u)
 
 -- | A list of different 'DotColor's.
 defaultDotColors :: [DotColor]
-defaultDotColors = map DotColor [blue, green, red, white]
+defaultDotColors = map DotColor [blue, green, red, white, yellow, cyan, magenta, rose, violet, azure, aquamarine, chartreuse, orange]
 
 -- | Add a new player to the 'Universe'.
 addPlayer :: Name -> DotColor -> Universe -> Universe
