@@ -1,5 +1,5 @@
 name:                dots-game
-version:             0.1.0.0
+version:             0.1
 synopsis:            Initial project template from stack
 description:         Please see README.md
 homepage:            https://github.com/fizruk/dots-game#readme
@@ -15,16 +15,44 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
+  exposed-modules:
+    Dots
   build-depends:       base >= 4.7 && < 5
+                     , bytestring
+                     , containers
+                     , gloss
+                     , websockets
   default-language:    Haskell2010
 
-executable dots-game-exe
-  hs-source-dirs:      app
+executable dots-game-client
+  hs-source-dirs:      client
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
+                     , containers
                      , dots-game
+                     , gloss
+                     , stm
+                     , websockets
+  default-language:    Haskell2010
+
+executable dots-game-server
+  hs-source-dirs:      server
+  main-is:             Main.hs
+  other-modules:
+    Dots.Server
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , containers
+                     , dots-game
+                     , http-types
+                     , servant
+                     , servant-server
+                     , stm
+                     , wai
+                     , wai-websockets
+                     , warp
+                     , websockets
   default-language:    Haskell2010
 
 test-suite dots-game-test
