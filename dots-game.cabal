@@ -10,7 +10,9 @@ maintainer:          nickolay.kudasov@gmail.com
 copyright:           (c) 2016 Nickolay Kudasov
 category:            Web
 build-type:          Simple
--- extra-source-files:
+extra-source-files:
+  README.md
+  images/*.png
 cabal-version:       >=1.10
 
 library
