@@ -102,7 +102,7 @@ defaultDotColors = map DotColor [blue, green, red, white, yellow, cyan, magenta,
 
 -- | Add a new player to the 'Universe'.
 addPlayer :: Name -> DotColor -> Universe -> Universe
-addPlayer name color (Universe u) = Universe (Map.insert name (Dot (0, 0) (0, 0) color) u)
+addPlayer name dcolor (Universe u) = Universe (Map.insert name (Dot (0, 0) (0, 0) dcolor) u)
 
 -- =====================================
 -- WebSockersData instances are needed

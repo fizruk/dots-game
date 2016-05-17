@@ -4,9 +4,7 @@ module Main where
 import Control.Concurrent (forkIO)
 import Control.Concurrent.STM
 import Control.Monad (forever)
-import qualified Data.Map as Map
 
-import Graphics.Gloss
 import Graphics.Gloss.Interface.IO.Game
 import Network.WebSockets
 import System.Exit (exitSuccess)
@@ -18,7 +16,7 @@ import Dots
 accel :: Dir -> GameState -> IO GameState
 accel d g@GameState{..} = do
   -- we fork to avoid interface freezing
-  forkIO $ sendBinaryData gameConnection (ActionAccel d)
+  _ <- forkIO $ sendBinaryData gameConnection (ActionAccel d)
   return g
 
 -- | Handle user input.
@@ -56,7 +54,7 @@ main = do
   universe <- atomically $ newTVar emptyUniverse
   runClient "localhost" 8000 "/connect" $ \conn -> do
     let gs = GameState universe conn
-    forkIO (handleUpdates gs)
+    _ <- forkIO (handleUpdates gs)
     playIO display bgColor fps (GameState universe conn) drawGame handleGame updateGame
   where
     winSize   = (500, 500)

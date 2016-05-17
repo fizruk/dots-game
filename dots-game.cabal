@@ -31,7 +31,6 @@ executable dots-game-client
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
-                     , containers
                      , dots-game
                      , gloss
                      , stm
